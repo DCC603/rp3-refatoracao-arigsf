@@ -3,30 +3,26 @@ import java.util.List;
 
 public class Conta {
     private Cliente cliente;
-    
+
     private int numAgencia;
     private int numConta;
     private String gerente;
 
-    // TODO(#2) REFATORAR: Esse nome não é o ideal para representar o saldo da conta
-    private double valor;
+    private double saldo;
 
     private List<Operacao> operacoes;
 
-    public Conta(String nomeCliente, String cpfCliente, String telefoneCliente, int numAgencia, int numConta, String gerente, double valor) {
-        this.nomeCliente = nomeCliente;
-        this.cpfCliente = cpfCliente;
-        this.telefoneCliente = telefoneCliente;
+    public Conta(Cliente cliente, int numAgencia, int numConta, String gerente, double saldo) {
+        this.cliente = cliente;
         this.numAgencia = numAgencia;
         this.numConta = numConta;
         this.gerente = gerente;
-        this.valor = valor;
-
+        this.saldo = saldo;
         this.operacoes = new ArrayList<>();
     }
 
     public Conta() {
-        this(null, null, null, 0, 0, null, 0);
+        this(null, 0, 0, null, 0);
     }
 
     // TODO(#3) REFATORAR: Muita responsabilidade para o mesmo método
