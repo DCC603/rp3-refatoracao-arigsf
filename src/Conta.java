@@ -25,15 +25,19 @@ public class Conta {
         this(null, 0, 0, null, 0);
     }
 
-    // TODO(#3) REFATORAR: Muita responsabilidade para o mesmo método
-    public void realizarOperacao(char tipo, int valor) {
-        Operacao op = new Operacao(tipo, valor);
+    public void depositar(double valor) {
+        this.saldo += valor;
+        Operacao op = new Operacao('d', valor);
         this.operacoes.add(op);
+    }
 
-        if (tipo == 'd')
-            this.valor += valor;
-        else if(tipo == 's')
-            this.valor -= valor;
+    public void sacar(double valor) {
+        if(saldo < valor){
+            return;
+        }
+        this.saldo -= valor;
+        Operacao op = new Operacao('s', valor);
+        this.operacoes.add(op);
     }
 
     public String toString() {
