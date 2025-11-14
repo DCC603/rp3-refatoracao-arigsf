@@ -2,13 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Conta {
-
-    // TODO(#1) REFATORAR: Esses dados deveriam ficar em outro lugar
-    private String nomeCliente;
-    private String cpfCliente;
-    private String telefoneCliente;
-
-    // TODO(#1) REFATORAR: Esses dados deveriam ficar em outro lugar
+    private Cliente cliente;
+    
     private int numAgencia;
     private int numConta;
     private String gerente;
