@@ -25,9 +25,13 @@ public class Conta {
         this(null, 0, 0, null, 0);
     }
 
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
     public void depositar(double valor) {
         this.saldo += valor;
-        Operacao op = new Operacao('d', valor);
+        Operacao op = new Operacao(TipoOperacao.DEPOSITO, valor);
         this.operacoes.add(op);
     }
 
@@ -36,7 +40,7 @@ public class Conta {
             return;
         }
         this.saldo -= valor;
-        Operacao op = new Operacao('s', valor);
+        Operacao op = new Operacao(TipoOperacao.SAQUE, valor);
         this.operacoes.add(op);
     }
 
@@ -50,7 +54,7 @@ public class Conta {
 
     public String toString() {
         String dadosConta = String.format("Ag.: %d\nConta: %d\nGerente: %s\nSaldo: %.2f",
-                this.numAgencia, this.numConta, this.gerente, this.valor);
+                this.numAgencia, this.numConta, this.gerente, this.saldo);
         
         return dadosConta;
     }
